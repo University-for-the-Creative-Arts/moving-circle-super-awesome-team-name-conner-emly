@@ -6,6 +6,9 @@ using namespace std;
 // Commented code contains functionality for a DVD logo texture to replace the circle
 int main() {
 
+    int LocX = 0;
+    int LocY = 0;
+
     // Initializes window, with a defined screen size and window name
     const int screenWidth = 1280;
     const int screenHeight = 720;
@@ -32,9 +35,17 @@ int main() {
     // Main game loop
     while (!WindowShouldClose()) {
 
+        //Input gathering
+        if(IsKeyDown(KEY_S)) LocY += 10;
+        if(IsKeyDown(KEY_A)) LocX -= 10;
+        if(IsKeyDown(KEY_W)) LocY -= 10;
+        if(IsKeyDown(KEY_D)) LocX += 10;
+
         // Clears the screen before drawing begins
-        ClearBackground(BLACK);
+        ClearBackground(BLUE);
         BeginDrawing();
+
+        DrawCircle(LocX,LocY,20,RED);
 
         // Swaps direction when sides of the screen are hit
         if ((hDir && (hPos >= (screenWidth - circleRadius))) || (!hDir && (hPos <= circleRadius))) {
