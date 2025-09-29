@@ -23,8 +23,8 @@ int main() {
     const int circleRadius = 25;
 
     // Sets the speed in pixels per frame
-    int hSpeed = 1;
-    int vSpeed = 1;
+    int hSpeed = 2;
+    int vSpeed = 2;
 
     // True values correspond to right/down, false values correspond to left/up
     bool hDir = 1;
@@ -68,8 +68,8 @@ int main() {
         }*/
 
         // Increments horizontal position by the defined speeds multiplied by positive/negative 1 depending on the current directions
-        hPos += hSpeed * hDir ? 1 : -1;
-        vPos += vSpeed * vDir ? 1 : -1;
+        hPos += hSpeed * (hDir ? 1 : -1);
+        vPos += vSpeed * (vDir ? 1 : -1);
 
         // Draws a white circle relative to the defined positions and radius
         DrawCircle(hPos, vPos, circleRadius, WHITE);
